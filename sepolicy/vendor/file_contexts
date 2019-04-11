@@ -14,6 +14,9 @@
 /persist-lg/sensors(/.*)?                                           u:object_r:sensors_persist_file:s0
 /vendor/sns(/.*)?                                                   u:object_r:sensors_data_file:s0
 
+/srtc							u:object_r:lge_other_data_file:s0
+/qni							u:object_r:lge_other_data_file:s0
+
 /(vendor|system/vendor)/bin/immvibed	          u:object_r:immvibed_exec:s0
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.joan     u:object_r:hal_light_default_exec:s0

@@ -146,6 +146,7 @@ BOARD_KERNEL_CMDLINE += sched_enable_hmp=1 sched_enable_power_aware=1
 BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.configfs=true
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init root=/dev/dm-0 dm=\"system none ro,0 1 android-verity $(TARGET_SYSTEM_PARTITION)\"
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
@@ -166,7 +167,9 @@ BOARD_FLASH_BLOCK_SIZE := 0x40000
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
-BOARD_VENDORIMAGE_PARTITION_SIZE := 529530880
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_USES_FULL_RECOVERY_IMAGE = true
+BOARD_VENDORIMAGE_PARTITION_SIZE := 529526784
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
@@ -175,6 +178,9 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.joan
 
 # RIL
 TARGET_RIL_VARIANT := caf
+
+# Root
+BOARD_ROOT_EXTRA_FOLDERS := firmware mpt persist persist-lg sns
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

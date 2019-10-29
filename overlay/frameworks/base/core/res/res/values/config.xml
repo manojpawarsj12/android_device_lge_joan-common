@@ -506,5 +506,7 @@
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
 	<bool name="config_enableSmartPixels">true</bool>
+	<bool name="config_nightDisplayAvailable">true</bool>
+	<bool name="config_supportSmartPixels">true</bool>
 
 </resources>
